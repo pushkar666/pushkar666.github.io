@@ -13,9 +13,9 @@
 
 body {
     font-family: 'Outfit','Poppins', sans-serif;
-    background: #ffffff;
+    background: #f3fffb; 
     height: 100vh;
-    color: #000;
+    color: #deb887;
     overflow-x: hidden;
 }
 
@@ -32,7 +32,7 @@ body {
 }
 
 header {
-    box-shadow: 0 4px 17px rgba(0, 0, 0, .1); /* add sadow effect for*/
+    box-shadow: 0 4px 17px rgba(0, 0, 0, .1);
     background: #fff;
     z-index: 1;
 }
@@ -44,7 +44,6 @@ header {
     padding: 1rem 0;
     width: 100%;
 }
-
 
 .logo a {
     color: #000;
@@ -62,7 +61,7 @@ ul {
 li a {
     display: inline-block;
     padding: .3rem 1rem;
-    color: #000;
+    color: #deb887;
     text-decoration: none;
     font-size: 1.05rem;
     font-weight: 600;
@@ -71,13 +70,13 @@ li a {
     line-height: 2;
     transition: .3s;
     opacity: 0;
-    animation: navSuh .3s ease forwards;
-    animation-delay: 2s;
+    animation: navFadeIn .5s ease forwards;
+    animation-delay: 1s;
 }
 
 li a.active,
 li a:hover {
-    color: var(--primary-color);
+    color: var(--primary-dark);
 }
 
 #click {
@@ -93,7 +92,7 @@ li a:hover {
     cursor: pointer;
     color: var(--primary-color);
     opacity: 0;
-    animation: rightSideSuh 1.5s ease forwards;
+    animation: iconFadeIn .5s ease forwards;
 }
 
 .intro {
@@ -129,28 +128,36 @@ li a:hover {
 }
 
 .profile-info h3 {
-    color: #000;
+    color: #deb887; 
     font-size: 1.5rem;
     opacity: 0;
-    animation: topSideSuh 1s ease forwards;
+    animation: textFadeIn .5s ease forwards;
 }
 
 .profile-info h1 {
-    color: #000;
+    color: #deb887; 
     font-size: 4rem;
     font-weight: 600;
     opacity: 0;
-    animation: leftSideSuh 1s ease forwards;
+    animation: textFadeIn .5s ease forwards;
     animation-delay: 1s;
 }
 
 .profile-info .name {
     color: var(--primary-color);
+    font-size: 3em;
+    display: inline-block;
+}
+
+.name1 {
+    color: var(--primary-color);
+    font-size: 2em;
+    display: inline-block;
 }
 
 .profile-info p {
     line-height: 1.6;
-    color: #666;
+    color: #deb887; 
     margin-top: 1rem;
 }
 
@@ -171,8 +178,8 @@ li a:hover {
     padding: 0.39rem;
     text-align: center;
     opacity: 0;
-    animation: SocialSuh 1s ease forwards;
-    animation-delay: 2000ms;
+    animation: iconFadeIn .5s ease forwards;
+    animation-delay: 2s;
 }
 
 .social a:hover {
@@ -189,14 +196,13 @@ li a:hover {
     box-shadow: 5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff;
 }
 
-
 .dark-mode {
     background-color: var(--primary-dark);
     color: #ffffff;
 }
 
 .about-section {
-    padding: 6rem 0;
+    padding: 1rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -213,7 +219,9 @@ li a:hover {
     justify-content: center;
 }
 
-.about-box {
+.about-box,
+.project-box,
+.skill-box {
     background: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -221,20 +229,30 @@ li a:hover {
     text-align: center;
     flex: 1;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 300px; 
+    margin-bottom: 2rem;
 }
 
-.about-box:hover {
+.about-box:hover,
+.project-box:hover,
+.skill-box:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.about h2 {
+.about h2,
+.projects h2,
+.skills h2 {
     font-size: 2.5rem;
     font-weight: 600;
     color: burlywood;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
 }
 
-.about-content {
+.about-content,
+.projects-content,
+.skills-content {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
@@ -243,20 +261,20 @@ li a:hover {
 
 .about-icon {
     font-size: 4rem;
-    color: burlywood
+    color: burlywood;
 }
 
-.about-info {
-    flex: 1;
-}
-
-.about-info h3 {
+.about-info h3,
+.project-box h3,
+.skill-box h3 {
     font-size: 1.5rem;
     font-weight: 500;
     color: #000;
 }
 
-.about-info p {
+.about-info p,
+.project-box p,
+.skill-box p {
     font-size: 1rem;
     color: #666;
     line-height: 1.6;
@@ -314,76 +332,56 @@ li a:hover {
     text-decoration: none;
     background: #fff;
     border-radius: 50%;
-    border: 2px solid var(--primary-dark);
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: color 0.3s ease, background 0.3s ease;
 }
 
 .social-media a:hover {
-    background: var(--primary-color);
+    color: var(--primary-color);
+    background: #f0f0f0;
+}
+
+footer {
+    background: var(--primary-dark);
     color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    width: 100%;
 }
 
-@keyframes leftSideSuh {
-    0% {
-        transform: translateX(-100px);
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+@keyframes navFadeIn {
+    from {
         opacity: 0;
+        transform: translateY(-10px);
     }
-    100% {
-        transform: translateX(0);
+    to {
         opacity: 1;
-    }
-}
-
-@keyframes navSuh {
-    0% {
-        transform: translateY(100px);
-        opacity: 0;
-    }
-    100% {
         transform: translateY(0);
-        opacity: 1;
     }
 }
 
-@keyframes rightSideSuh {
-    0% {
-        transform: translateX(100px);
+@keyframes textFadeIn {
+    from {
         opacity: 0;
+        transform: translateY(10px);
     }
-    100% {
-        transform: translateX(0);
+    to {
         opacity: 1;
-    }
-}
-
-@keyframes topSideSuh {
-    0% {
-        transform: translateY(-100px);
-        opacity: 0;
-    }
-    100% {
         transform: translateY(0);
-        opacity: 1;
-    }
-}
-@keyframes SocialSuh {
-    0% {
-        transform: translateY(100px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
     }
 }
 
-@keyframes imageSuh {
-    0% {
+@keyframes iconFadeIn {
+    from {
         opacity: 0;
-        transform: scale(0);
+        transform: translateY(10px);
     }
-    100% {
+    to {
         opacity: 1;
-        transform: scale(1);
+        transform: translateY(0);
     }
 }
